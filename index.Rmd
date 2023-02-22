@@ -162,7 +162,7 @@ ggplot(df, aes(x=logFC, y=-log10(P.Value))) + geom_point(aes(color=group)) +
 
 ### Result
 
-[![<ENV222> The wide visalization of volcano plot online.](https://i.ibb.co/C9sbPM7/Rplot.png)](https://i.ibb.co/C9sbPM7/Rplot.png)
+[![<ENV222> The wide visalization of volcano plot online.](https://i.ibb.co/C9sbPM7/Rplot.png)](https://i.ibb.co/TwQNqWk/R-volcano-plot.png)
 
 ---
 
