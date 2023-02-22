@@ -162,7 +162,7 @@ ggplot(df, aes(x=logFC, y=-log10(P.Value))) + geom_point(aes(color=group)) +
 
 ### Result
 
-[![<ENV222> The wide visalization of volcano plot online.](https://i.ibb.co/C9sbPM7/Rplot.png)](https://i.ibb.co/TwQNqWk/R-volcano-plot.png)
+[![<ENV222> The wide visalization of volcano plot online.](https://i.ibb.co/C9sbPM7/Rplot.png)](https://i.ibb.co/C9sbPM7/Rplot.png)
 
 ---
 
@@ -179,6 +179,20 @@ ggplot(df, aes(x=logFC, y=-log10(P.Value))) + geom_point(aes(color=group)) +
 - <font color=Red>[Create volcano plot]</font> Create a volcano plot coloring all significant genes. Typically, we will call genes significant here if FDR < 0.01 and a log10 fold change of 3. These were the values used in the original paper for this dataset. Often, label the top 10 most significant genes with their gene names.
 - <font color=Red>[Conclusion]</font> The up-regulated differential genes and the down-regulated differential genes which was derived from the volcano plot then can be used for subsequent data analysis and comparison.
 ]
+
+---
+
+## Reference:
+
+.left-column[
+*<font color=green>Click the picture to open link:</font>*
+]
+
+.right-column[
+[![<ENV222> The wide visalization of science paper which was uesd volcano plot.](https://i.ibb.co/LNKYS0G/pnas-1620755114fig03.png)](https://pubmed.ncbi.nlm.nih.gov/28096348/)
+]
+
+**[Topic]** Transcriptomic, proteomic, and metabolomic landscape of positional memory
 
 ---
 
