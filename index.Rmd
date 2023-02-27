@@ -4,6 +4,7 @@ subtitle: "<font size=6>Volcano plot in science research</font>"
 author: 
   - "ID: 1931391"
 date: '`r Sys.Date()`'
+bibliography: references.bib
 output:
   xaringan::moon_reader:
     css: xaringan-themer.css
