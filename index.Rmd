@@ -1,6 +1,6 @@
 ---
 title: "ENV222 oral presentation"
-subtitle: "<font size=6>Volcano plot in science research</font>"
+subtitle: "<font size=6>Volcano plot in NGS(bioinformatics)</font>"
 author: 
   - "ID: 1931391"
 date: '`r Sys.Date()`'
@@ -38,6 +38,35 @@ style_duo_accent(
 )
 ```
 
+### The detailed steps involved in *Next-Generation Sequencing*:
+
+1. <font color=Orange>Library preparation</font>: <span style="font-size:18px;">DNA or RNA samples are fragmented, size-selected, and ligated to adapters, which allows them to bind to the sequencing platform. This step is essential for generating high-quality reads.</span>
+2. <font color=Orange>Quality control</font>: <span style="font-size:18px;">The quality of the prepared library is assessed using various metrics such as concentration, purity, fragment size distribution, and quality scores. Libraries that pass the quality control are sequenced.</span>
+3. <font color=Orange>Sequencing</font>: <span style="font-size:18px;">The library is loaded onto a sequencer, which sequences millions of DNA or RNA fragments simultaneously. There are different sequencing technologies available, including Illumina, Ion Torrent, and PacBio.</span>
+4. <font color=Orange>Data processing</font>: <span style="font-size:18px;">Raw sequencing data generated from the sequencer are processed to remove adapter sequences, low-quality reads, and contaminations. This step is essential to ensure the accuracy of downstream analyses.</span>
+5. <font color=Orange>Alignment</font>: <span style="font-size:18px;">The processed reads are aligned to a reference genome or transcriptome using specialized software such as Bowtie, BWA, STAR, or HISAT2. The alignment generates a BAM file, which stores the aligned reads' genomic coordinates.</span>
+6. <font color=Orange>Variant calling</font>: <span style="font-size:18px;">The aligned reads are analyzed to identify variants such as single-nucleotide polymorphisms (SNPs) and insertions/deletions (indels) using software such as GATK or FreeBayes.</span>
+7. <font color=Orange>Differential expression analysis</font><font color=Red>*</font>: <span style="font-size:18px;">The expression levels of genes are quantified using software such as HTSeq or FeatureCounts. The expression data are then analyzed to identify differentially expressed genes between different experimental conditions using software such as DESeq2 or edgeR.</span>
+8. <font color=Orange>Functional analysis</font>: <span style="font-size:18px;">The differentially expressed genes are annotated and analyzed to determine their biological functions, signaling pathways, and potential disease associations. This step is critical for understanding the biological relevance of the experimental results.</span>
+9. <font color=Orange>Visualization and interpretation</font>: <span style="font-size:18px;">The results from the functional analysis are visualized using tools such as heatmaps, <font color=Red><u>volcano plots</u></font>, and pathway diagrams. The results are then interpreted to draw conclusions and generate hypotheses.</span>
+
+---
+
+## Paper from NCBI:
+
+.left-column[
+*<font color=green>Click the picture to open link of the NCBI paper:</font>*
+]
+
+.right-column[
+[![<ENV222> The wide visalization of science paper which was uesd volcano plot.](images/pnas-1620755114fig01.jpg)](https://pubmed.ncbi.nlm.nih.gov/28096348/)
+]
+
+**[Topic]** Transcriptomic, proteomic, and metabolomic landscape of positional memory <br>
+            in the caudal fin of zebrafish
+
+---
+
 ## High throughput data
 Often, after a genetic biology experiment, we have a large number of data sets that we need to filter, and the most convenient way to do this is to use the P-value.
 
@@ -48,6 +77,22 @@ Using the volcano plot we can visualize the data with significant differences an
 
 - Volcano plots with ggplot2 for differential gene expression **[video]**:
 [Volcano plots with ggplot2 for differential gene expression](https://www.youtube.com/watch?v=sIRnaKo1aKE)
+
+---
+
+# Steps for differential gene detection
+
+.left-column[
+## First
+## Second
+## Third
+]
+
+.right-column[
+- <font color=Red>[Preparing the inputs]</font> Differential expressed results file (genes in rows, and 4 required columns: raw *P values*, *adjusted P values (FDR)*, *log fold change* and *gene labels*).
+- <font color=Red>[Create volcano plot]</font> Create a volcano plot coloring all significant genes. Typically, we will call genes significant here if FDR < 0.01 and a log10 fold change of 3. These were the values used in the original paper for this dataset. Often, label the top 10 most significant genes with their gene names.
+- <font color=Red>[Conclusion]</font> The up-regulated differential genes and the down-regulated differential genes which was derived from the volcano plot then can be used for subsequent data analysis and comparison.
+]
 
 ---
 
@@ -72,7 +117,7 @@ Using the volcano plot we can visualize the data with significant differences an
 15641     4
 ```
 
-<font color=Orange>As we can see, this CSV file is extremely large in data. It contains the four attributes gene name, log(fold change), P-value, adjusted P-value.</font> 
+<font color=Orange>This CSV file is extremely large in data. It contains the four attributes gene name, log(fold change), P-value, adjusted P-value.</font> 
 
 ---
 
@@ -163,37 +208,7 @@ ggplot(df, aes(x=logFC, y=-log10(P.Value))) + geom_point(aes(color=group)) +
 
 ### Result
 
-[![<ENV222> The wide visalization of volcano plot online.](https://i.ibb.co/C9sbPM7/Rplot.png)](https://i.ibb.co/C9sbPM7/Rplot.png)
-
----
-
-# Steps for differential gene detection
-
-.left-column[
-## First
-## Second
-## Third
-]
-
-.right-column[
-- <font color=Red>[Preparing the inputs]</font> Differentially expressed results file (genes in rows, and 4 required columns: raw *P values*, *adjusted P values (FDR)*, *log fold change* and *gene labels*).
-- <font color=Red>[Create volcano plot]</font> Create a volcano plot coloring all significant genes. Typically, we will call genes significant here if FDR < 0.01 and a log10 fold change of 3. These were the values used in the original paper for this dataset. Often, label the top 10 most significant genes with their gene names.
-- <font color=Red>[Conclusion]</font> The up-regulated differential genes and the down-regulated differential genes which was derived from the volcano plot then can be used for subsequent data analysis and comparison.
-]
-
----
-
-## Reference:
-
-.left-column[
-*<font color=green>Click the picture to open link:</font>*
-]
-
-.right-column[
-[![<ENV222> The wide visalization of science paper which was uesd volcano plot.](https://i.ibb.co/LNKYS0G/pnas-1620755114fig03.png)](https://pubmed.ncbi.nlm.nih.gov/28096348/)
-]
-
-**[Topic]** Transcriptomic, proteomic, and metabolomic landscape of positional memory
+[![<ENV222> The wide visalization of volcano plot online.](images/R-volcano-plot.png)](https://i.ibb.co/C9sbPM7/Rplot.png)
 
 ---
 
