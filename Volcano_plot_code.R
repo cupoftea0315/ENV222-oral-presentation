@@ -1,4 +1,5 @@
 # dev.new()
+setwd(".")
 getwd()
 
 df <- read.csv("volcano_plot_example_data.csv",
@@ -17,8 +18,11 @@ library(ggplot2)
 library(ggrepel)
 ggplot(df, aes(x=logFC, y=-log10(P.Value))) + geom_point(aes(color=group)) +
   scale_color_manual(values=c("dodgerblue", "gray", "firebrick")) +
+  geom_vline(xintercept = 3, linetype = "dashed") +
+  geom_vline(xintercept = -3, linetype = "dashed") +
+  geom_hline(yintercept = 2, linetype = "dashed") +
   geom_label_repel(data=df_sig,aes(x=logFC, y=-log10(P.Value), label=gene_name)) +
-  labs(title = "Oral Presentation", subtitle = "< ENV222 >", 
-       caption ="[Volcano plot R-demo for bioinformatics]", 
-       y="-log10(p-value)", x="log(Fold Change)") +
-  theme_bw()
+  labs(title = "Oral Presentation demonstration", subtitle = "< ENV222 >", 
+       y=expression(-log[10](p-value)), x="log(Fold Change)") + 
+  theme_test()
+
